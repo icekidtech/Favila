@@ -1,6 +1,13 @@
 import photo2 from "/photo2.jpg"; 
 
 const Hero = () => {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "+351932369205"; // Replace with actual number (e.g., "351912345678")
+    const message = "Hi, I'd like to book a cleaning service!";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <section
       className="relative min-h-screen bg-cover bg-center pt-44"
@@ -26,7 +33,10 @@ const Hero = () => {
         </p>
 
         {/* CTA */}
-        <button className="mt-10 rounded-full bg-[#c79a7b] px-10 py-3 text-sm font-medium text-white hover:bg-[#b9896a]">
+        <button 
+          onClick={handleWhatsAppClick}
+          className="mt-10 rounded-full bg-[#c79a7b] px-10 py-3 text-sm font-medium text-white hover:bg-[#b9896a] transition-all"
+        >
           Book a Cleaning
         </button>
 
