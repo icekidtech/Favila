@@ -43,8 +43,8 @@ const Navbar = () => {
         <div className="md:hidden mt-3 rounded-3xl bg-black/90 px-6 py-6 text-white/80 backdrop-blur-lg">
           <ul className="flex flex-col gap-5 text-sm">
             <li className="text-orange-400">Home</li>
-            <li className="hover:text-white">Services</li>
             <li className="hover:text-white">About Us</li>
+            <li className="hover:text-white">Services</li>      
             <li className="hover:text-white">Testimonials</li>
             <button className="mt-4 rounded-full bg-white px-6 py-2 text-sm font-medium text-black">
               Contact Us
