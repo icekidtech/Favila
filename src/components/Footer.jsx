@@ -6,6 +6,13 @@ const Footer = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClic
     callback();
   };
 
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "+351932369205";
+    const message = "Hi! I'd like to book a cleaning service. I'm [Your Name].";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <footer className="w-full bg-gradient-to-b from-[#111] to-[#000] text-white px-6 md:px-16 py-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -91,7 +98,7 @@ const Footer = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClic
             </li>
             <li>
               <button 
-                onClick={() => handleQuickLinkClick(onServicesClick)}
+                onClick={handleWhatsAppClick}
                 className="hover:text-white transition cursor-pointer bg-none border-none"
               >
                 Contact Us
