@@ -42,14 +42,14 @@ const Hero = () => {
 
         {/* Stats */}
         <div 
-          className="mt-16 rounded-[51px] bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-100"
+          className="mt-16 rounded-[31px] bg-white/10 backdrop-transparent-md border border-white/20 flex items-center justify-center opacity-1"
           style={{
-            width: "600px",
-            height: "90px",
-            gap: "100px",
+            width: "500px",
+            height: "100px",
+            gap: "70px",
           }}
         >
-          <div className="grid grid-cols-3 gap-[100px] text-center text-white">
+          <div className="grid grid-cols-3 gap-[70px] text-center text-white">
             <div>
               <h3 className="text-3xl font-bold">100%</h3>
               <p className="text-sm text-gray-300 mt-2">Trusted</p>
