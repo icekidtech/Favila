@@ -40,7 +40,12 @@ const LandingPage = () => {
       <div ref={testimonialsRef}>
         <Testimonials/>
       </div>
-      <Footer/>
+      <Footer
+        onHomeClick={() => scrollToSection(homeRef)}
+        onAboutClick={() => scrollToSection(aboutRef)}
+        onServicesClick={() => scrollToSection(servicesRef)}
+        onTestimonialsClick={() => scrollToSection(testimonialsRef)}
+      />
     </>
   );
 };
