@@ -40,6 +40,13 @@ const services = [
 ];
 
 const Services = () => {
+  const handleReadMoreClick = (serviceTitle) => {
+    const phoneNumber = "+351932369205";
+    const message = `Hi! I'd like to know more about your ${serviceTitle} service. I'm [Your Name].`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <section className="w-full bg-[#FFF9F6] py-20 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
@@ -90,6 +97,7 @@ const Services = () => {
 
               <div className="mt-6">
                 <button
+                  onClick={() => handleReadMoreClick(service.title)}
                   className={`font-semibold flex items-center gap-2 text-sm transition-colors
                     ${
                       service.highlight
