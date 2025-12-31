@@ -2,7 +2,7 @@ import photo2 from "/photo2.jpg";
 
 const Hero = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "+351932369205"; // Replace with actual number (e.g., "351912345678")
+    const phoneNumber = "+351932369205";
     const message = "Hi, I'd like to book a cleaning service!";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
@@ -41,18 +41,27 @@ const Hero = () => {
         </button>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-3 gap-10 text-center text-white">
-          <div>
-            <h3 className="text-xl font-semibold">100%</h3>
-            <p className="text-xs text-gray-300">Trusted</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold">100%</h3>
-            <p className="text-xs text-gray-300">Client Satisfaction</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold">100%</h3>
-            <p className="text-xs text-gray-300">Reliable</p>
+        <div 
+          className="mt-16 rounded-[51px] bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-100"
+          style={{
+            width: "600px",
+            height: "90px",
+            gap: "100px",
+          }}
+        >
+          <div className="grid grid-cols-3 gap-[100px] text-center text-white">
+            <div>
+              <h3 className="text-3xl font-bold">100%</h3>
+              <p className="text-sm text-gray-300 mt-2">Trusted</p>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold">100%</h3>
+              <p className="text-sm text-gray-300 mt-2">Client Satisfaction</p>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold">100%</h3>
+              <p className="text-sm text-gray-300 mt-2">Reliable</p>
+            </div>
           </div>
         </div>
       </div>
