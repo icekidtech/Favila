@@ -4,7 +4,6 @@ const services = [
   {
     title: "House Cleaning",
     desc: "Regular maintenance to keep your living space fresh, tidy, and consistently inviting.",
-    highlight: true,
   },
   {
     title: "Deep Cleaning",
@@ -61,18 +60,18 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`rounded-2xl p-6 flex flex-col justify-between min-h-[220px]
+              className={`rounded-2xl p-6 flex flex-col justify-between min-h-[220px] transition-all duration-300 cursor-pointer
                 ${
                   service.highlight
-                    ? "bg-[#F25C2A] text-white"
-                    : "bg-[#FDE3D3] text-[#222]"
+                    ? "bg-[#F25C2A] text-white hover:bg-[#E84D1A] hover:shadow-lg"
+                    : "bg-[#FDE3D3] text-[#222] hover:bg-[#F25C2A] hover:text-white hover:shadow-lg"
                 }
               `}
             >
               <div>
                 <h3
                   className={`text-xl font-semibold mb-3 ${
-                    service.highlight ? "text-white" : "text-[#111]"
+                    service.highlight ? "text-white" : "text-[#111] group-hover:text-white"
                   }`}
                 >
                   {service.title}
@@ -80,7 +79,7 @@ const Services = () => {
 
                 <p
                   className={`text-sm leading-relaxed ${
-                    service.highlight ? "text-white/90" : "text-[#444]"
+                    service.highlight ? "text-white/90" : "text-[#444] group-hover:text-white/90"
                   }`}
                 >
                   {service.desc}
@@ -89,11 +88,11 @@ const Services = () => {
 
               <div className="mt-6">
                 <button
-                  className={`font-semibold flex items-center gap-2 text-sm
+                  className={`font-semibold flex items-center gap-2 text-sm transition-colors
                     ${
                       service.highlight
-                        ? "text-white"
-                        : "text-[#F25C2A]"
+                        ? "text-white hover:text-white/80"
+                        : "text-[#F25C2A] hover:text-white"
                     }
                   `}
                 >
