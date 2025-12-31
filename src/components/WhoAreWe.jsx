@@ -9,6 +9,13 @@ const WhoAreWe = () => {
     window.open(whatsappUrl, "_blank");
   };
 
+  const handleReadMoreClick = () => {
+    const phoneNumber = "+351932369205";
+    const message = "Hi! I'd like to know more about your cleaning services. I'm [Your Name].";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <section className="w-full bg-[#FDE3D3] py-16 px-6 md:px-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -39,13 +46,13 @@ const WhoAreWe = () => {
           </button>
 
           <div className="mt-6">
-            <a
-              href="#"
-              className="text-[#F25C2A] font-semibold flex items-center gap-2 hover:gap-3 transition-all"
+            <button
+              onClick={handleReadMoreClick}
+              className="text-[#F25C2A] font-semibold flex items-center gap-2 hover:gap-3 transition-all bg-none border-none cursor-pointer"
             >
               Read More
               <span className="text-xl">→</span>
-            </a>
+            </button>
           </div>
         </div>
 
