@@ -4,6 +4,7 @@ import WhoAreWe from "../components/WhoAreWe";
 import Services from "../components/Services";
 import WhyChooseUs from "../components/WhyChooseUs";
 import VisionMission from "../components/VisionMission";
+import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 
 const LandingPage = () => {
@@ -14,9 +15,9 @@ const LandingPage = () => {
       <WhoAreWe/>
       <Services/>
       <WhyChooseUs/>
-     <VisionMission/>
-     <Footer/>
-      
+      <VisionMission/>
+      <Testimonials/>
+      <Footer/>
     </>
   );
 };
