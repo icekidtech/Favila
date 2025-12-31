@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import WhoAreWe from "../components/WhoAreWe";
@@ -13,18 +13,21 @@ const LandingPage = () => {
   const aboutRef = useRef(null);
   const servicesRef = useRef(null);
   const testimonialsRef = useRef(null);
+  const [activeSection, setActiveSection] = useState("home");
 
-  const scrollToSection = (ref) => {
+  const scrollToSection = (ref, section) => {
+    setActiveSection(section);
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
       <Navbar 
-        onHomeClick={() => scrollToSection(homeRef)}
-        onAboutClick={() => scrollToSection(aboutRef)}
-        onServicesClick={() => scrollToSection(servicesRef)}
-        onTestimonialsClick={() => scrollToSection(testimonialsRef)}
+        activeSection={activeSection}
+        onHomeClick={() => scrollToSection(homeRef, "home")}
+        onAboutClick={() => scrollToSection(aboutRef, "about")}
+        onServicesClick={() => scrollToSection(servicesRef, "services")}
+        onTestimonialsClick={() => scrollToSection(testimonialsRef, "testimonials")}
       />
       <div ref={homeRef}>
         <Hero />
@@ -41,10 +44,10 @@ const LandingPage = () => {
         <Testimonials/>
       </div>
       <Footer
-        onHomeClick={() => scrollToSection(homeRef)}
-        onAboutClick={() => scrollToSection(aboutRef)}
-        onServicesClick={() => scrollToSection(servicesRef)}
-        onTestimonialsClick={() => scrollToSection(testimonialsRef)}
+        onHomeClick={() => scrollToSection(homeRef, "home")}
+        onAboutClick={() => scrollToSection(aboutRef, "about")}
+        onServicesClick={() => scrollToSection(servicesRef, "services")}
+        onTestimonialsClick={() => scrollToSection(testimonialsRef, "testimonials")}
       />
     </>
   );
