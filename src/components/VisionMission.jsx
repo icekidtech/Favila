@@ -23,7 +23,7 @@ const VisionMission = () => {
                             p-8 text-center text-white">
               <h3 className="text-2xl font-semibold mb-6">Our Vision</h3>
               <p className="text-sm leading-relaxed text-white/90">
-                To be Portugal’s leading cleaning service known for trust,
+                To be Portugal's leading cleaning service known for trust,
                 excellence, and consistent quality — while evolving into a
                 multi-industry brand under the Favilla name.
               </p>
@@ -49,11 +49,6 @@ const VisionMission = () => {
             </div>
 
           </div>
-
-          {/* Bottom Text */}
-          <h2 className="text-white text-3xl md:text-4xl font-semibold text-center">
-            What Some Satisfied Clients Said
-          </h2>
 
         </div>
       </div>
