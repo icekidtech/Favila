@@ -17,7 +17,12 @@ const Footer = () => {
 
           <ul className="space-y-4 text-sm text-white/70">
             <li className="flex items-center gap-3">
-              <Phone size={16} /> +351 932 369 205
+              <a 
+                href="tel:+351932369205" 
+                className="flex items-center gap-3 hover:text-white transition"
+              >
+                <Phone size={16} /> +351 932 369 205
+              </a>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={16} /> favillagroupco@gmail.com
