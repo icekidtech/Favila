@@ -33,7 +33,14 @@ const Footer = () => {
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <MapPin size={16} /> Cascais, Lisbon, Portugal
+              <a 
+                href="https://www.google.com/maps/search/Cascais,+Lisbon,+Portugal" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 hover:text-white transition"
+              >
+                <MapPin size={16} /> Cascais, Lisbon, Portugal
+              </a>
             </li>
             <li className="flex items-center gap-3">
               <Clock size={16} />
