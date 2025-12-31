@@ -1,7 +1,11 @@
 import React from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
-const Footer = () => {
+const Footer = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClick }) => {
+  const handleQuickLinkClick = (callback) => {
+    callback();
+  };
+
   return (
     <footer className="w-full bg-gradient-to-b from-[#111] to-[#000] text-white px-6 md:px-16 py-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -53,11 +57,46 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-6">Quick Links</h4>
           <ul className="space-y-4 text-sm text-white/60">
-            <li>Home</li>
-            <li>Services</li>
-            <li>About Us</li>
-            <li>Testimonials</li>
-            <li>Contact Us</li>
+            <li>
+              <button 
+                onClick={() => handleQuickLinkClick(onHomeClick)}
+                className="hover:text-white transition cursor-pointer bg-none border-none"
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleQuickLinkClick(onServicesClick)}
+                className="hover:text-white transition cursor-pointer bg-none border-none"
+              >
+                Services
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleQuickLinkClick(onAboutClick)}
+                className="hover:text-white transition cursor-pointer bg-none border-none"
+              >
+                About Us
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleQuickLinkClick(onTestimonialsClick)}
+                className="hover:text-white transition cursor-pointer bg-none border-none"
+              >
+                Testimonials
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleQuickLinkClick(onServicesClick)}
+                className="hover:text-white transition cursor-pointer bg-none border-none"
+              >
+                Contact Us
+              </button>
+            </li>
           </ul>
         </div>
 
@@ -98,7 +137,7 @@ const Footer = () => {
                 placeholder="Email"
                 className="bg-transparent px-5 py-3 w-full outline-none text-sm"
               />
-              <button className="bg-[#444] px-6 py-3 text-sm font-semibold">
+              <button className="bg-[#444] px-6 py-3 text-sm font-semibold hover:bg-[#555] transition">
                 Subscribe
               </button>
             </div>
