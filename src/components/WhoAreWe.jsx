@@ -2,6 +2,13 @@ import React from "react";
 import cleaningImg from "/photo1.jpg"; // replace with your image path
 
 const WhoAreWe = () => {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "+351932369205";
+    const message = "Hi, I'd like to book a cleaning service!";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <section className="w-full bg-[#FDE3D3] py-16 px-6 md:px-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -24,7 +31,10 @@ const WhoAreWe = () => {
             on what matters most.
           </p>
 
-          <button className="mt-6 bg-gradient-to-r from-[#F25C2A] to-[#F7A17A] text-[#5A1E0C] font-semibold px-8 py-3 rounded-xl shadow-md hover:opacity-90 transition">
+          <button 
+            onClick={handleWhatsAppClick}
+            className="mt-6 bg-gradient-to-r from-[#F25C2A] to-[#F7A17A] text-[#5A1E0C] font-semibold px-8 py-3 rounded-xl shadow-md hover:opacity-90 transition"
+          >
             Book a Cleaning
           </button>
 
