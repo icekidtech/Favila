@@ -60,7 +60,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`rounded-2xl p-6 flex flex-col justify-between min-h-[220px] transition-all duration-300 cursor-pointer
+              className={`rounded-2xl p-6 flex flex-col justify-between min-h-[220px] transition-all duration-300 cursor-pointer group
                 ${
                   service.highlight
                     ? "bg-[#F25C2A] text-white hover:bg-[#E84D1A] hover:shadow-lg"
@@ -78,8 +78,10 @@ const Services = () => {
                 </h3>
 
                 <p
-                  className={`text-sm leading-relaxed ${
-                    service.highlight ? "text-white/90" : "text-[#444] group-hover:text-white/90"
+                  className={`text-sm leading-relaxed transition-colors ${
+                    service.highlight 
+                      ? "text-white/90" 
+                      : "text-[#444] group-hover:text-white"
                   }`}
                 >
                   {service.desc}
@@ -92,7 +94,7 @@ const Services = () => {
                     ${
                       service.highlight
                         ? "text-white hover:text-white/80"
-                        : "text-[#F25C2A] hover:text-white"
+                        : "text-[#F25C2A] group-hover:text-white"
                     }
                   `}
                 >
