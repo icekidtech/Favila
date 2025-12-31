@@ -1,15 +1,27 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClick }) => {
   const [open, setOpen] = useState(false);
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "+351932369205";
+    const message = "Hi, I'd like to book a cleaning service!";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
+  const handleNavClick = (callback) => {
+    callback();
+    setOpen(false);
+  };
 
   return (
     <header className="fixed top-6 left-1/2 z-50 w-[92%] -translate-x-1/2 rounded-full bg-gradient-to-r from-black/60 via-black/40 to-black/60 backdrop-blur-lg">
       <nav className="flex items-center justify-between px-6 md:px-8 py-4 md:py-5">
         
         {/* Logo */}
-        <div className="flex items-center gap-3 text-white font-medium">
+        <div className="flex items-center gap-3 text-white font-medium cursor-pointer" onClick={() => handleNavClick(onHomeClick)}>
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black">
             ✦
           </span>
@@ -18,14 +30,17 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center gap-10 text-sm text-white/80">
-          <li className="cursor-pointer text-orange-400">Home</li>
-          <li className="cursor-pointer hover:text-white">Services</li>
-          <li className="cursor-pointer hover:text-white">About Us</li>
-          <li className="cursor-pointer hover:text-white">Testimonials</li>
+          <li className="cursor-pointer text-orange-400 hover:text-orange-300 transition" onClick={() => handleNavClick(onHomeClick)}>Home</li>
+          <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onAboutClick)}>About Us</li>
+          <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onServicesClick)}>Services</li>
+          <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onTestimonialsClick)}>Testimonials</li>
         </ul>
 
         {/* Desktop CTA */}
-        <button className="hidden md:block rounded-full bg-white/90 px-6 py-2 text-sm font-medium text-black hover:bg-white">
+        <button 
+          onClick={handleWhatsAppClick}
+          className="hidden md:block rounded-full bg-white/90 px-6 py-2 text-sm font-medium text-black hover:bg-white transition"
+        >
           Contact Us
         </button>
 
@@ -42,11 +57,14 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden mt-3 rounded-3xl bg-black/90 px-6 py-6 text-white/80 backdrop-blur-lg">
           <ul className="flex flex-col gap-5 text-sm">
-            <li className="text-orange-400">Home</li>
-            <li className="hover:text-white">About Us</li>
-            <li className="hover:text-white">Services</li>      
-            <li className="hover:text-white">Testimonials</li>
-            <button className="mt-4 rounded-full bg-white px-6 py-2 text-sm font-medium text-black">
+            <li className="text-orange-400 cursor-pointer" onClick={() => handleNavClick(onHomeClick)}>Home</li>
+            <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onAboutClick)}>About Us</li>
+            <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onServicesClick)}>Services</li>
+            <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onTestimonialsClick)}>Testimonials</li>
+            <button 
+              onClick={handleWhatsAppClick}
+              className="mt-4 w-full rounded-full bg-white px-6 py-2 text-sm font-medium text-black hover:bg-white/90 transition"
+            >
               Contact Us
             </button>
           </ul>
