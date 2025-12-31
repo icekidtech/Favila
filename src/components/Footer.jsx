@@ -25,7 +25,12 @@ const Footer = () => {
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Mail size={16} /> favillagroupco@gmail.com
+              <a 
+                href="mailto:favillagroupco@gmail.com" 
+                className="flex items-center gap-3 hover:text-white transition"
+              >
+                <Mail size={16} /> favillagroupco@gmail.com
+              </a>
             </li>
             <li className="flex items-center gap-3">
               <MapPin size={16} /> Cascais, Lisbon, Portugal
