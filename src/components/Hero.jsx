@@ -35,7 +35,10 @@ const Hero = () => {
         {/* CTA */}
         <button 
           onClick={handleWhatsAppClick}
-          className="mt-10 rounded-full bg-[#c79a7b] px-10 py-3 text-sm font-medium text-white hover:bg-[#b9896a] transition-all"
+          className="mt-10 rounded-full px-10 py-3 text-sm font-medium text-white hover:opacity-80 transition-all border border-white/30 backdrop-blur-sm"
+          style={{
+            background: "linear-gradient(85.93deg, #7F1F00 1%, #7F1F00 100%)",
+          }}
         >
           Book a Cleaning
         </button>
