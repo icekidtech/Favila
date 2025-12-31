@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const Navbar = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClick }) => {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "+351932369205";
@@ -11,7 +12,8 @@ const Navbar = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClic
     window.open(whatsappUrl, "_blank");
   };
 
-  const handleNavClick = (callback) => {
+  const handleNavClick = (callback, section) => {
+    setActiveSection(section);
     callback();
     setOpen(false);
   };
@@ -21,7 +23,7 @@ const Navbar = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClic
       <nav className="flex items-center justify-between px-6 md:px-8 py-4 md:py-5">
         
         {/* Logo */}
-        <div className="flex items-center gap-3 text-white font-medium cursor-pointer" onClick={() => handleNavClick(onHomeClick)}>
+        <div className="flex items-center gap-3 text-white font-medium cursor-pointer" onClick={() => handleNavClick(onHomeClick, "home")}>
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black">
             ✦
           </span>
@@ -30,10 +32,30 @@ const Navbar = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClic
 
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center gap-10 text-sm text-white/80">
-          <li className="cursor-pointer text-orange-400 hover:text-orange-300 transition" onClick={() => handleNavClick(onHomeClick)}>Home</li>
-          <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onAboutClick)}>About Us</li>
-          <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onServicesClick)}>Services</li>
-          <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onTestimonialsClick)}>Testimonials</li>
+          <li 
+            className={`cursor-pointer transition ${activeSection === "home" ? "text-orange-400" : "hover:text-white"}`}
+            onClick={() => handleNavClick(onHomeClick, "home")}
+          >
+            Home
+          </li>
+          <li 
+            className={`cursor-pointer transition ${activeSection === "about" ? "text-orange-400" : "hover:text-white"}`}
+            onClick={() => handleNavClick(onAboutClick, "about")}
+          >
+            About Us
+          </li>
+          <li 
+            className={`cursor-pointer transition ${activeSection === "services" ? "text-orange-400" : "hover:text-white"}`}
+            onClick={() => handleNavClick(onServicesClick, "services")}
+          >
+            Services
+          </li>
+          <li 
+            className={`cursor-pointer transition ${activeSection === "testimonials" ? "text-orange-400" : "hover:text-white"}`}
+            onClick={() => handleNavClick(onTestimonialsClick, "testimonials")}
+          >
+            Testimonials
+          </li>
         </ul>
 
         {/* Desktop CTA */}
@@ -57,10 +79,30 @@ const Navbar = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClic
       {open && (
         <div className="md:hidden mt-3 rounded-3xl bg-black/90 px-6 py-6 text-white/80 backdrop-blur-lg">
           <ul className="flex flex-col gap-5 text-sm">
-            <li className="text-orange-400 cursor-pointer" onClick={() => handleNavClick(onHomeClick)}>Home</li>
-            <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onAboutClick)}>About Us</li>
-            <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onServicesClick)}>Services</li>
-            <li className="cursor-pointer hover:text-white transition" onClick={() => handleNavClick(onTestimonialsClick)}>Testimonials</li>
+            <li 
+              className={`cursor-pointer transition ${activeSection === "home" ? "text-orange-400" : "hover:text-white"}`}
+              onClick={() => handleNavClick(onHomeClick, "home")}
+            >
+              Home
+            </li>
+            <li 
+              className={`cursor-pointer transition ${activeSection === "about" ? "text-orange-400" : "hover:text-white"}`}
+              onClick={() => handleNavClick(onAboutClick, "about")}
+            >
+              About Us
+            </li>
+            <li 
+              className={`cursor-pointer transition ${activeSection === "services" ? "text-orange-400" : "hover:text-white"}`}
+              onClick={() => handleNavClick(onServicesClick, "services")}
+            >
+              Services
+            </li>
+            <li 
+              className={`cursor-pointer transition ${activeSection === "testimonials" ? "text-orange-400" : "hover:text-white"}`}
+              onClick={() => handleNavClick(onTestimonialsClick, "testimonials")}
+            >
+              Testimonials
+            </li>
             <button 
               onClick={handleWhatsAppClick}
               className="mt-4 w-full rounded-full bg-white px-6 py-2 text-sm font-medium text-black hover:bg-white/90 transition"
