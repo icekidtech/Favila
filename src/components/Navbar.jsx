@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const Navbar = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClick }) => {
+const Navbar = ({ activeSection, onHomeClick, onAboutClick, onServicesClick, onTestimonialsClick }) => {
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "+351932369205";
@@ -13,7 +12,6 @@ const Navbar = ({ onHomeClick, onAboutClick, onServicesClick, onTestimonialsClic
   };
 
   const handleNavClick = (callback, section) => {
-    setActiveSection(section);
     callback();
     setOpen(false);
   };
